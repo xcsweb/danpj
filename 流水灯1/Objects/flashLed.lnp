@@ -1,0 +1,3 @@
+".\Objects\flashLed.obj" 
+TO ".\Objects\flashLed" 
+PRINT(".\Listings\flashLed.m51") RAMSIZE(256) 

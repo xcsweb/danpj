@@ -1,0 +1,168 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    02/23/2023  12:53:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\SOFT\KEIL\C51\BIN\BL51.EXE .\Objects\dig.obj TO .\Objects\数码管 PRINT (.\Listings\数码管.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\dig.obj (DIG)
+  C:\SOFT\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\SOFT\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\数码管 (DIG)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?DIG
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     00B6H     UNIT         ?PR?KEYSCAN?DIG
+            CODE    00B9H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0145H     0023H     UNIT         ?PR?MAIN?DIG
+            CODE    0168H     0019H     UNIT         ?CO?DIG
+            CODE    0181H     0009H     UNIT         ?PR?DELAY5MS?DIG
+            CODE    018AH     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\数码管 (DIG)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?DIG
+  +--> ?C_INITSEG
+
+?PR?MAIN?DIG
+  +--> ?PR?KEYSCAN?DIG
+  +--> ?CO?DIG
+
+?PR?KEYSCAN?DIG
+  +--> ?PR?DELAY5MS?DIG
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\数码管 (DIG)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  02/23/2023  12:53:25  PAGE 2
+
+
+
+  -------         MODULE        DIG
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  C:0181H         PUBLIC        Delay5ms
+  D:00A8H         PUBLIC        IE
+  B:00A0H.6       PUBLIC        DU
+  D:00B8H         PUBLIC        IP
+  B:00A0H.7       PUBLIC        WE
+  C:0145H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:0008H         PUBLIC        keyValue
+  C:0003H         PUBLIC        keyScan
+  C:0168H         PUBLIC        leddata
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          DELAY5MS
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:0181H         LINE#         5
+  C:0181H         LINE#         6
+  C:0181H         LINE#         9
+  C:0183H         LINE#         10
+  C:0185H         LINE#         12
+  C:0185H         LINE#         13
+  C:0187H         LINE#         14
+  C:0189H         LINE#         15
+  -------         ENDPROC       DELAY5MS
+  -------         PROC          KEYSCAN
+  C:0003H         LINE#         45
+  C:0003H         LINE#         47
+  C:0006H         LINE#         48
+  C:000CH         LINE#         49
+  C:000FH         LINE#         50
+  C:0015H         LINE#         51
+  C:0028H         LINE#         52
+  C:002EH         LINE#         53
+  C:0030H         LINE#         54
+  C:0036H         LINE#         55
+  C:0038H         LINE#         56
+  C:003EH         LINE#         57
+  C:0040H         LINE#         58
+  C:0046H         LINE#         59
+  C:0046H         LINE#         60
+  C:0046H         LINE#         61
+  C:0049H         LINE#         62
+  C:0059H         LINE#         63
+  C:0059H         LINE#         64
+  C:005BH         LINE#         65
+  C:005DH         LINE#         66
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  02/23/2023  12:53:25  PAGE 3
+
+
+  C:005FH         LINE#         67
+  C:0061H         LINE#         68
+  C:0063H         LINE#         69
+  C:006EH         LINE#         70
+  C:006EH         LINE#         71
+  C:006EH         LINE#         72
+  C:0073H         LINE#         73
+  C:0073H         LINE#         74
+  C:0073H         LINE#         76
+  C:0076H         LINE#         77
+  C:007BH         LINE#         78
+  C:007EH         LINE#         79
+  C:0083H         LINE#         80
+  C:0095H         LINE#         81
+  C:009BH         LINE#         82
+  C:009DH         LINE#         83
+  C:00A3H         LINE#         84
+  C:00A5H         LINE#         85
+  C:00ABH         LINE#         86
+  C:00ADH         LINE#         87
+  C:00B3H         LINE#         88
+  C:00B3H         LINE#         89
+  C:00B3H         LINE#         90
+  C:00B8H         LINE#         91
+  C:00B8H         LINE#         92
+  C:00B8H         LINE#         93
+  -------         ENDPROC       KEYSCAN
+  -------         PROC          MAIN
+  C:0145H         LINE#         94
+  C:0145H         LINE#         95
+  C:0148H         LINE#         96
+  C:014AH         LINE#         97
+  C:014DH         LINE#         98
+  C:014FH         LINE#         99
+  C:014FH         LINE#         100
+  C:0152H         LINE#         101
+  C:0154H         LINE#         102
+  C:0164H         LINE#         103
+  C:0166H         LINE#         105
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DIG
+
+Program Size: data=11.0 xdata=0 code=399
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

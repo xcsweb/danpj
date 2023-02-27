@@ -1,0 +1,37 @@
+C51 COMPILER V9.60.7.0   DIG                                                               02/22/2023 15:55:29 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DIG
+OBJECT MODULE PLACED IN .\Objects\dig.obj
+COMPILER INVOKED BY: C:\soft\keil\C51\BIN\C51.EXE dig.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\dig
+                    -.lst) TABS(2) OBJECT(.\Objects\dig.obj)
+
+line level    source
+
+   1          #include <STC89C5xRC.H>
+   2          sbit DU=P2^6; //段选p26
+   3          sbit WE=P2^7; //位选p27
+   4          sbit PO0=P0^0;
+   5          void main(){
+   6   1        WE=1; //位选开启
+   7   1        P0=0xFE; //选择第一个数码管
+   8   1        WE=0; //位选关闭
+   9   1        DU=1; //段选开启
+  10   1        P0=0x06; //显示数字1
+  11   1        DU=0; //段选锁存器关闭
+  12   1        
+  13   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     15    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

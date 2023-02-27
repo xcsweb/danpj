@@ -1,0 +1,3 @@
+".\Objects\flash.obj" 
+TO ".\Objects\flash" 
+PRINT(".\Listings\flash.m51") RAMSIZE(256) 

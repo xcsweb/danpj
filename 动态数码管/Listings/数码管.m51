@@ -1,0 +1,152 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    02/22/2023  16:59:18  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\SOFT\KEIL\C51\BIN\BL51.EXE .\Objects\dig.obj TO .\Objects\数码管 PRINT (.\Listings\数码管.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\dig.obj (DIG)
+  C:\SOFT\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\SOFT\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  .\Objects\数码管 (DIG)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         _DATA_GROUP_
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008DH     UNIT         ?PR?_DISPLAY?DIG
+            CODE    0090H     0055H     UNIT         ?C?LIB_CODE
+            CODE    00E5H     0019H     UNIT         ?CO?DIG
+            CODE    00FEH     0011H     UNIT         ?PR?DELAY5MS?DIG
+            CODE    010FH     000CH     UNIT         ?C_C51STARTUP
+            CODE    011BH     0009H     UNIT         ?PR?MAIN?DIG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\数码管 (DIG)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?DIG
+
+?PR?MAIN?DIG                   -----    -----
+  +--> ?PR?_DISPLAY?DIG
+
+?PR?_DISPLAY?DIG               0008H    0002H
+  +--> ?CO?DIG
+  +--> ?PR?DELAY5MS?DIG
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\数码管 (DIG)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  02/22/2023  16:59:18  PAGE 2
+
+
+  -------         MODULE        DIG
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  C:0106H         PUBLIC        Delay5ms
+  D:00A8H         PUBLIC        IE
+  B:00A0H.6       PUBLIC        DU
+  D:00B8H         PUBLIC        IP
+  B:00A0H.7       PUBLIC        WE
+  C:011BH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:00E5H         PUBLIC        leddata
+  D:00C8H         PUBLIC        T2CON
+  C:0003H         PUBLIC        _display
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          L?0011
+  -------         ENDPROC       L?0011
+  -------         PROC          DELAY5MS
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:0106H         LINE#         5
+  C:0106H         LINE#         6
+  C:0106H         LINE#         9
+  C:0108H         LINE#         10
+  C:010AH         LINE#         12
+  C:010AH         LINE#         13
+  C:010CH         LINE#         14
+  C:010EH         LINE#         15
+  -------         ENDPROC       DELAY5MS
+  -------         PROC          _DISPLAY
+  D:0002H         SYMBOL        i
+  -------         DO            
+  D:0082H         SYMBOL        bai
+  D:0008H         SYMBOL        shi
+  D:0004H         SYMBOL        ge
+  -------         ENDDO         
+  C:0003H         LINE#         45
+  C:0007H         LINE#         46
+  C:0012H         LINE#         47
+  C:002EH         LINE#         48
+  C:0039H         LINE#         49
+  C:003CH         LINE#         50
+  C:003EH         LINE#         51
+  C:0041H         LINE#         52
+  C:0043H         LINE#         53
+  C:0045H         LINE#         54
+  C:0051H         LINE#         55
+  C:0051H         LINE#         57
+  C:0054H         LINE#         58
+  C:0057H         LINE#         59
+  C:0059H         LINE#         60
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  02/22/2023  16:59:18  PAGE 3
+
+
+  C:005CH         LINE#         61
+  C:005EH         LINE#         62
+  C:0060H         LINE#         63
+  C:006AH         LINE#         64
+  C:006AH         LINE#         66
+  C:006DH         LINE#         67
+  C:0070H         LINE#         68
+  C:0072H         LINE#         69
+  C:0075H         LINE#         70
+  C:0077H         LINE#         71
+  C:0079H         LINE#         72
+  C:008BH         LINE#         73
+  C:008DH         LINE#         74
+  -------         ENDPROC       _DISPLAY
+  -------         PROC          MAIN
+  C:011BH         LINE#         77
+  C:011BH         LINE#         78
+  C:011BH         LINE#         79
+  C:0122H         LINE#         80
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DIG
+
+  -------         MODULE        ?C?UIDIV
+  C:0090H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=11.0 xdata=0 code=292
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

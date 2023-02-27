@@ -1,0 +1,81 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    02/22/2023  15:55:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\SOFT\KEIL\C51\BIN\BL51.EXE .\Objects\dig.obj TO .\Objects\数码管 PRINT (.\Listings\数码管.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\dig.obj (DIG)
+  C:\SOFT\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\数码管 (DIG)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     000FH     UNIT         ?PR?MAIN?DIG
+            CODE    0012H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\数码管 (DIG)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?DIG
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\数码管 (DIG)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DIG
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  D:00A8H         PUBLIC        IE
+  B:00A0H.6       PUBLIC        DU
+  D:00B8H         PUBLIC        IP
+  B:00A0H.7       PUBLIC        WE
+  C:0003H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  02/22/2023  15:55:30  PAGE 2
+
+
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0003H         LINE#         5
+  C:0003H         LINE#         6
+  C:0005H         LINE#         7
+  C:0008H         LINE#         8
+  C:000AH         LINE#         9
+  C:000CH         LINE#         10
+  C:000FH         LINE#         11
+  C:0011H         LINE#         13
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DIG
+
+Program Size: data=9.0 xdata=0 code=30
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

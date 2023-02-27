@@ -1,0 +1,58 @@
+C51 COMPILER V9.60.7.0   DIG                                                               02/23/2023 17:08:15 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DIG
+OBJECT MODULE PLACED IN .\Objects\dig.obj
+COMPILER INVOKED BY: C:\soft\keil\C51\BIN\C51.EXE dig.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\dig
+                    -.lst) TABS(2) OBJECT(.\Objects\dig.obj)
+
+line level    source
+
+   1          #include <STC89.H>
+   2          sbit DIO=P3^4;
+   3          sbit S_CLK=P3^5; //移位寄存器时钟
+   4          sbit R_CLK=P3^6; //输出锁存器时钟
+   5          unsigned char arr[]={0xFF,0x93,0x01,0x83,0xC7,0xEF,0xFF,0xFF};
+   6          void sendByte(unsigned char dat){
+   7   1        unsigned int i;
+   8   1        R_CLK=0;
+   9   1        for(i=0;i<8;i++){
+  10   2          S_CLK=0;
+  11   2          if(dat&0x01){
+  12   3            //按位与，和0x01与，得到值位0x01或者0x00,0x01为真,0x00为假
+  13   3            DIO=1;
+  14   3          }else{
+  15   3            DIO=0;
+  16   3          }
+  17   2          dat>>=1;//右移，让DIO取最后一位,
+  18   2          S_CLK=1;
+  19   2        }
+  20   1      }
+  21          void main(){
+  22   1          unsigned int i;
+  23   1          //逐行输出低电平
+  24   1          unsigned char row;
+  25   1          while(1){
+  26   2            row=0x80;//1000 0000
+  27   2            for(i=0;i<8;i++){
+  28   3              sendByte(arr[i]);
+  29   3              sendByte(row);
+  30   3              row>>=1;//进行右移
+  31   3              R_CLK=1; //输出完成1个字
+  32   3            }
+  33   2          }
+  34   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     73    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

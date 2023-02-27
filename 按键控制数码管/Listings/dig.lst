@@ -1,0 +1,116 @@
+C51 COMPILER V9.60.7.0   DIG                                                               02/23/2023 10:07:03 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DIG
+OBJECT MODULE PLACED IN .\Objects\dig.obj
+COMPILER INVOKED BY: C:\soft\keil\C51\BIN\C51.EXE dig.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\dig
+                    -.lst) TABS(2) OBJECT(.\Objects\dig.obj)
+
+line level    source
+
+   1          #include <STC89.H>
+   2          sbit DU=P2^6; //段选p26
+   3          sbit WE=P2^7; //位选p27
+   4          sbit PO0=P0^0;
+   5          sbit key_s2=P3^0;
+   6          sbit key_s3=P3^1;
+   7          void Delay20ms()    //@11.0592MHz
+   8          {
+   9   1        unsigned char i, j;
+  10   1      
+  11   1        i = 36;
+  12   1        j = 217;
+  13   1        do
+  14   1        {
+  15   2          while (--j);
+  16   2        } while (--i);
+  17   1      }
+  18          
+  19          
+  20          //数码管段选表
+  21          unsigned char code leddata[]={ 
+  22                          0x3F,  //"0"
+  23                          0x06,  //"1"
+  24                          0x5B,  //"2"
+  25                          0x4F,  //"3"
+  26                          0x66,  //"4"
+  27                          0x6D,  //"5"
+  28                          0x7D,  //"6"
+  29                          0x07,  //"7"
+  30                          0x7F,  //"8"
+  31                          0x6F,  //"9"
+  32                          0x77,  //"A"
+  33                          0x7C,  //"B"
+  34                          0x39,  //"C"
+  35                          0x5E,  //"D"
+  36                          0x79,  //"E"
+  37                          0x71,  //"F"
+  38                          0x76,  //"H"
+  39                          0x38,  //"L"
+  40                          0x37,  //"n"
+  41                          0x3E,  //"u"
+  42                          0x73,  //"P"
+  43                          0x5C,  //"o"
+  44                          0x40,  //"-"
+  45                          0x00,  //熄灭
+  46                          0x00  //自定义
+  47           };
+  48          
+  49          void display(unsigned int i){
+  50   1        unsigned int ge=i%10;
+  51   1        P0=0xFF; //清除断码
+  52   1        WE=1; //位选开启
+  53   1        P0=0xFE; //选择第一个数码管1111 1110 14
+  54   1        WE=0; //位选关闭
+C51 COMPILER V9.60.7.0   DIG                                                               02/23/2023 10:07:03 PAGE 2   
+
+  55   1        DU=1; //段选开启
+  56   1        P0=leddata[ge]; //显示数字1
+  57   1        DU=0; //段选锁存器关闭
+  58   1      }
+  59           
+  60          void main()
+  61          {
+  62   1        int num=0;
+  63   1        display(num);
+  64   1        while(1){
+  65   2          if(key_s2==0){
+  66   3            //按键按下
+  67   3            Delay20ms();//按键按下去除波形抖动
+  68   3            if(key_s2==0){
+  69   4              num++;
+  70   4              if(num>9){
+  71   5                num=9;
+  72   5              }
+  73   4              display(num);
+  74   4              while(!key_s2); //按键弹起
+  75   4            }
+  76   3          }
+  77   2          if(key_s3==0){
+  78   3            //按键按下
+  79   3            Delay20ms();//按键按下去除波形抖动
+  80   3            if(key_s3==0){
+  81   4              num--;
+  82   4              if(num<0){
+  83   5                num=0;
+  84   5              }
+  85   4              display(num);
+  86   4              while(!key_s3); //按键弹起
+  87   4            }
+  88   3          }
+  89   2        }
+  90   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    133    ----
+   CONSTANT SIZE    =     25    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
